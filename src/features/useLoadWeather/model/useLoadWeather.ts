@@ -25,8 +25,8 @@ export const useLoadWeather = (locations: MaybeRefOrGetter<LocationCoord[]>) => 
   })
 
   watch(requests, async (promises) => {
-    isLoading.value = true
     weather.value = []
+    isLoading.value = true
     try {
       const responses = await Promise.allSettled(promises)
       responses.forEach(response => {

@@ -8,8 +8,8 @@ import WidgetSettings from './WidgetSettings.vue';
 import settinsIcon from '@/shared/assets/icons/settings.svg'
 
 const isSettingsOpened = ref(false)
-const { store, updateLocations } = useGetLocation()
-const { weather } = useLoadWeather(store)
+const { store, isGettingLocation, updateLocations } = useGetLocation()
+const { weather, isLoading } = useLoadWeather(store)
 
 const openSettings = () => {
 	isSettingsOpened.value = true
@@ -44,7 +44,13 @@ const updateLoc = (locations: LocationCoord[]) => {
 				<div class="widget__locations" v-if="store.length">
 					<city-weather-card class="widget__location-card" v-for="cityWeather in weather" :city-weather="cityWeather" />
 				</div>
-				<div class="widget__geolocation-failed" v-else>Failed to retrieve location data. Specify the location manually in the settings</div>
+				<div v-else-if="isGettingLocation">
+					Getting location...
+				</div>
+				<div v-else-if="isLoading">
+					Loading weather...
+				</div>
+				<div class="widget__geolocation-failed" v-else>Failed to retrieve location data. Specify the location manually in the settings or reload page</div>
 			</div>
 		</div>
 	</div>
