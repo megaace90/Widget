@@ -1,0 +1,1 @@
+export { useGetLocation } from './model/useGetLocation.ts'

@@ -1,0 +1,1 @@
+export { type LocationCoord } from './model/types.ts'

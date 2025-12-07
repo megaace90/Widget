@@ -1,0 +1,1 @@
+export { default as CityWeatherCard } from './CityWeatherCard.vue'
