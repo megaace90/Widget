@@ -1,4 +1,19 @@
-To add a widget to html page, you need to insert a script link in the «head» and insert the <weather-widget /> tag in the «body» at the appropriate location
+Тестовое задание «Погодный виджет» 
 
-https://cdn.jsdelivr.net/gh/megaace90/Widget@main/dist/weather-widget.934cf59e266c101d1e2b.js 
+В проекте используется погодное API openweathermap.org
+
+Проект собирается в единый javascript-файл и подключается к странице как виджет (веб-компонент).
+
+Запустить проект в режиме разработки:
+npm run dev
+
+Запустить сборку проекта:
+npm run build
+
+Подключить виджет к своему сайту:
+- Перейти на openweathermap.org и получить api-ключ (это бесплатно). В файле, «constants.ts» который находится по пути src -> shared -> api заменить значение константы API_KEY на свое.
+- Запустить сборку проекта (npm run build)
+- Файл из папки «dist» с названием вида «weather-widget.934cf59e266c101d1e.js» загрузить на хостиг, где находится ваш сайт.
+- На нужной странице сайта добавить тег script со ссылкой на этот файл
+- В html-код страницы в нужном месте вставить <weather-widget />
  
